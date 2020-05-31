@@ -1,0 +1,24 @@
+
+.postItem{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 46px;
+}
+
+.postItemImg{
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  /* margin-right: 55px; */
+}
+
+.postItemMessage{
+  border-radius: 12px;
+  background-color: #fcf9f6;
+  padding: 12px 28px;
+  width: 76%;
+  margin-right: 40px;
+  color: #2d3436;
+  font-size: 16px;
+}

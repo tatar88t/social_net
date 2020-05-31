@@ -1,0 +1,32 @@
+.addPost{
+  display: flex;
+  align-items: baseline;
+  justify-content: space-around;
+}
+
+.addPostArea{
+  width:  76%;
+  resize: vertical;
+  border-radius: 10px;
+  display: block;
+  padding: 12px 28px;
+  margin-right: 50px;
+  border: 1px solid #636e72;
+  font-size: 16px;
+  outline: none;
+  min-height: 44px;
+  max-height: 104px;
+  
+}
+.addPostBtn{
+  width: 94px;
+  height: 32px;
+  background: #2d3436;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  outline: none;
+  cursor: pointer;
+
+
+}
