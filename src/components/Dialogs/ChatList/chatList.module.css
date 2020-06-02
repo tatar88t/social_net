@@ -1,3 +1,5 @@
 .chatList{
-    padding: 20px;
+    margin-top: 20px;
+    padding: 10px;
+    border-right: 1px solid #dfe6e9;
 }

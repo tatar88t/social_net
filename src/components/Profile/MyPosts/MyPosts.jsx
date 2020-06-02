@@ -2,9 +2,14 @@ import React from 'react';
 import stl from './myPosts.module.css'
 import PostItem from './PostItem/PostItem'
 import AddPost from './AddPost/AddPost'
-import messages from './../../Messages/postedMessages'
+// import messages from '../../Messages/posts'
 
-const MyPosts = () => {
+
+const MyPosts = (props) => {
+
+    
+    const allmessages = props.posts.map(item => <PostItem message = {item.post} likes = {item.likes}/>)
+
     return(
         <div className = {stl.myPostsSect}>
                 <h2 className = {stl.myPostsTitle}>My posts</h2>
@@ -12,10 +17,7 @@ const MyPosts = () => {
                <AddPost />
               
                 <div className = {stl.posts}>
-                   <PostItem message = {messages[0].post_1}/>
-                   <PostItem message = {messages[1].post_2}/> 
-                   <PostItem message = {messages[2].post_3}/> 
-                   <PostItem message = {messages[3].post_4}/>  
+                   { allmessages} 
                 </div>
         </div>
     )
