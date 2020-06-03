@@ -1,11 +1,15 @@
 import React from 'react';
 import stl from './profileInfo.module.css';
+import ProfileDescr from './ProfileDescr/ProfileDescr';
 
 
-const ProfileInfo = () => {
+const ProfileInfo = (props) => {
     return(
         <div className = {stl.profileInfo}>
-            <div>ava + descr</div>
+            
+            <img src = {props.profileImg} alt = 'ava-pic' className = {stl.profileAvatar} />
+            <ProfileDescr />
+            
 
         </div>
     )

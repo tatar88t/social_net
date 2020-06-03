@@ -13,8 +13,8 @@ const Dialogs =(props) => {
 
     return(
         <div className = {stl.dialogs}>
-            <ChatList data = {props.data} />
-            <Chat messages = {props.messages} />
+            <ChatList contacts = {props.state.contacts} />
+            <Chat messages = {props.state.messages} />
         </div>
     )
 }

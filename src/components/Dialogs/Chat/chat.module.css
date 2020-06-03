@@ -1,7 +1,40 @@
+.chatWrapper{
+    padding: 20px 36px 24px 12px; ;
+}
 .chat{
     padding: 20px;
-    margin: 20px 36px 24px 12px;
+    /* margin: 20px 36px 24px 12px; */
     background: #fcf9f6;
     border-radius: 14px;
-    height: 100%;
+    height: 400px;
+}
+.newMessage{
+    margin-top: 12px;
+    resize: none;
+    border-radius: 14px;
+    display: block;
+    height: 64px;
+    width: 100%;
+    padding: 12px 28px;
+    border: 1px solid #636e72;
+    font-size: 16px;
+    outline: none;
+
+}
+
+.btnWrapper{
+    display: flex;
+    justify-content: flex-end;
+}
+.chatWrapper button{
+    margin-top: 12px;
+    display: inline-block;
+    width: 94px;
+    height: 32px;
+    background: #2d3436;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    outline: none;
+    cursor: pointer;
 }

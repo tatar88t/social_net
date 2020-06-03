@@ -11,7 +11,7 @@ const ChatList =(props) => {
 
    
 
-    const chatDialogs = props.data.map(dialogItem => <ChatListItem name = {dialogItem.name} id = {dialogItem.id} profileAvatarPath = {dialogItem.profileAvatarPath} />)
+    const chatDialogs = props.contacts.map(dialogItem => <ChatListItem name = {dialogItem.name} id = {dialogItem.id} profileAvatarPath = {dialogItem.profileAvatarPath} />)
     
     return(
         <div className = {stl.chatList}>
