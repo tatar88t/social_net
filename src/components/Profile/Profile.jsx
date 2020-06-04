@@ -14,7 +14,10 @@ const Profile = (props) => {
         <div className = {stl.profile}>
             <div className = {stl.profileHeadImg}></div>
             <ProfileInfo profileImg = {props.state.profileImg}/>
-            <MyPosts posts = {props.state.posts} />
+            <MyPosts posts = {props.state.posts} 
+                     newPostText = {props.state.newPostText} 
+                     addPost = {props.addPost}
+                     updateNewPostText = {props.updateNewPostText} />
         </div>
     )
 }
