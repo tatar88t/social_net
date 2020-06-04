@@ -14,7 +14,8 @@ const MyPosts = (props) => {
         <div className = {stl.myPostsSect}>
                 <h2 className = {stl.myPostsTitle}>My posts</h2>
 
-               <AddPost addPost = {props.addPost}  newPostText = {props.newPostText} updateNewPostText = {props.updateNewPostText} />
+               <AddPost newPostText = {props.newPostText}
+                        dispatch = {props.dispatch} />
               
                 <div className = {stl.posts}>
                    { allmessages} 
