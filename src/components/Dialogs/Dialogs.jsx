@@ -1,7 +1,7 @@
 import React from 'react';
 import stl from './dialogs.module.css';
 import ChatList from './ChatList/ChatList';
-import Chat from './Chat/Chat';
+import ChatContainer from './Chat/ChatContainer';
 
 
 
@@ -13,10 +13,12 @@ const Dialogs =(props) => {
 
     return(
         <div className = {stl.dialogs}>
-            <ChatList contacts = {props.state.contacts} />
-            <Chat messages = {props.state.messages} 
-                  newMessageText = {props.state.newMessageText}
-                  dispatch = {props.dispatch} />
+            <ChatList store = {props.store} />
+            <ChatContainer 
+                //   newMessageText = {props.state.newMessageText}
+                //   messages = {props.state.messages} 
+                //   dispatch = {props.dispatch}
+                  store = {props.store} />
         </div>
     )
 }

@@ -7,23 +7,21 @@ const AddPost = (props) => {
     
     let newPostElement = React.createRef()
 
-    const addNewPost = () => {
-        
-        props.dispatch(addNewPostActionCreator());
+    const onAddNewPost = () => {
+        props.addPost()
+      
         
     }
     
 
     let onPostChange = () => {
         let text = newPostElement.current.value;
-        let action = onPostChangeActionCreator(text);
-        props.dispatch(action);
-
+        props.updateNewPostText(text)
     }
     return(
         
         <div className = {stl.addPost}>
-            <button className = {stl.addPostBtn} onClick = {addNewPost}>Send</button>
+            <button className = {stl.addPostBtn} onClick = {onAddNewPost}>Send</button>
             <textarea ref = {newPostElement} onChange = {onPostChange} className= {stl.addPostArea} placeholder = "Type here..." value = {props.newPostText} />
             
         </div>

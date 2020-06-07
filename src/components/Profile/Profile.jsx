@@ -13,10 +13,13 @@ const Profile = (props) => {
     return(
         <div className = {stl.profile}>
             <div className = {stl.profileHeadImg}></div>
-            <ProfileInfo profileImg = {props.state.profileImg}/>
-            <MyPosts posts = {props.state.posts} 
-                     newPostText = {props.state.newPostText} 
-                     dispatch = {props.dispatch} />
+            <ProfileInfo store = {props.store} />
+            <MyPosts 
+                    // posts = {props.state.posts} 
+                    //  newPostText = {props.state.newPostText}
+                    // dispatch = {props.dispatch} 
+                     store = {props.store}
+                      />
         </div>
     )
 }

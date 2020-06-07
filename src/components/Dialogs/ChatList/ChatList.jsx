@@ -9,9 +9,9 @@ import ChatListItem from './ChatListItem/ChatListItem';
 
 const ChatList =(props) => {
 
-   
+   let state = props.store.getState()
 
-    const chatDialogs = props.contacts.map(dialogItem => <ChatListItem name = {dialogItem.name} id = {dialogItem.id} profileAvatarPath = {dialogItem.profileAvatarPath} />)
+    const chatDialogs = state.dialogPage.contacts.map(dialogItem => <ChatListItem name = {dialogItem.name} id = {dialogItem.id} profileAvatarPath = {dialogItem.profileAvatarPath} />)
     
     return(
         <div className = {stl.chatList}>

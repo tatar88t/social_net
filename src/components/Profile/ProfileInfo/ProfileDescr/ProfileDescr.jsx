@@ -2,7 +2,7 @@ import React from 'react';
 import stl from './profileDescr.module.css';
 
 
-const ProfileDescr = () => {
+const ProfileDescr = (props) => {
     return(
         <div className = {stl.profileDescr}>
             <div>

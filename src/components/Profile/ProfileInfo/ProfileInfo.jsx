@@ -4,10 +4,14 @@ import ProfileDescr from './ProfileDescr/ProfileDescr';
 
 
 const ProfileInfo = (props) => {
+    
+    let state = props.store.getState()
+    
+
     return(
         <div className = {stl.profileInfo}>
             
-            <img src = {props.profileImg} alt = 'ava-pic' className = {stl.profileAvatar} />
+            <img src = {state.profilePage.profileImg} alt = 'ava-pic' className = {stl.profileAvatar} />
             <ProfileDescr />
             
 
