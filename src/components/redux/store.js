@@ -1,3 +1,7 @@
+import profilePageReducer from "./profilePageReducer";
+import dialogPageReducer from './dialogPageReducer';
+
+
 let store = {
     _state: {
         profilePage: 
@@ -23,7 +27,8 @@ let store = {
                 {message: 'I\'m OK as well', id: "03"},
                 {message: 'Do you want to go for a walk tonight', id: "04"},
                 {message: 'Sure, meet me in the park at 6', id: "05"}
-            ]
+            ],
+            newMessageText: '',
         }
     },
     _callRerender(){
@@ -37,22 +42,11 @@ let store = {
         this._callRerender = watchRender
     },
     dispatch(action) {
-        if (action.type === 'ADD-POST') {
-            let newPost = {
-                id: 5,
-                post: this._state.profilePage.newPostText,
-                likes: 0
-            };
-        
-            this._state.profilePage.posts.push(newPost);
-            this._state.profilePage.newPostText = '';
-            this._callRerender(this._state); 
-        } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
-            this._state.profilePage.newPostText = action.newText;
-            this._callRerender(this._state);
-        }
+        this._state.profilePage = profilePageReducer(this._state.profilePage, action);
+        this._state.dialogPage = dialogPageReducer(this._state.dialogPage, action);
+            
+        this._callRerender(this._state);    
     }
-
 }
 
 export default store

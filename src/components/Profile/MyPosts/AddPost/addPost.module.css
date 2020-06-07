@@ -6,7 +6,7 @@
 
 .addPostArea{
   width:  76%;
-  resize: vertical;
+  resize: none;
   border-radius: 10px;
   display: block;
   padding: 12px 28px;
@@ -14,8 +14,8 @@
   border: 1px solid #636e72;
   font-size: 16px;
   outline: none;
-  min-height: 44px;
-  max-height: 104px;
+  /* min-height: 44px; */
+  height: 104px;
   
 }
 .addPostBtn{

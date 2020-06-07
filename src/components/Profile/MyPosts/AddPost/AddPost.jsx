@@ -1,20 +1,22 @@
 import React from 'react';
-import stl from './addPost.module.css'
+import stl from './addPost.module.css';
+import {addNewPostActionCreator, onPostChangeActionCreator} from '../../../redux/profilePageReducer';
+
 
 const AddPost = (props) => {
     
     let newPostElement = React.createRef()
 
     const addNewPost = () => {
-        let text = newPostElement.current.value;
-        props.dispatch({type: 'ADD-POST'});
+        
+        props.dispatch(addNewPostActionCreator());
         
     }
     
 
     let onPostChange = () => {
         let text = newPostElement.current.value;
-        let action = {type: 'UPDATE-NEW-POST-TEXT', newText: text};
+        let action = onPostChangeActionCreator(text);
         props.dispatch(action);
 
     }

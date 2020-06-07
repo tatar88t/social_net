@@ -2,19 +2,23 @@ import React from 'react';
 import stl from './chat.module.css';
 import { NavLink } from 'react-router-dom';
 import ChatMessage from './ChatMessage/ChatMessage';
-
+import {sendMessageCreator, onMessageBodyChangeCreator} from '../../redux/dialogPageReducer';
 
 
 
 const Chat =(props) => {
 
-    const newMessage = React.createRef()
     
     const allmessages = props.messages.map(item => <ChatMessage message = {item.message} id = {item.id} />)
 
-    const addNewMessage = () => {
-        let text = newMessage.current.value;
-        alert(text);
+    const sendMessage = () => {
+        props.dispatch(sendMessageCreator())
+    }
+    
+    const onMessageChange = (e) => {
+        let text = e.target.value;
+        let action = onMessageBodyChangeCreator(text);
+        props.dispatch(action);
     }
 
     return(
@@ -22,9 +26,9 @@ const Chat =(props) => {
             <div className = {stl.chat}>
                 {allmessages}    
             </div>
-            <textarea ref = {newMessage} className = {stl.newMessage}></textarea>
+            <textarea onChange = {onMessageChange} value = {props.newMessageText} className = {stl.newMessage} placeholder = 'Enter your message here...'></textarea>
             <div className = {stl.btnWrapper}>
-                <button onClick = {addNewMessage}>Send</button>    
+                <button onClick = {sendMessage}>Send</button>    
             </div>
         </div>
     )

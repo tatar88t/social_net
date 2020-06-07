@@ -14,7 +14,9 @@ const Dialogs =(props) => {
     return(
         <div className = {stl.dialogs}>
             <ChatList contacts = {props.state.contacts} />
-            <Chat messages = {props.state.messages} />
+            <Chat messages = {props.state.messages} 
+                  newMessageText = {props.state.newMessageText}
+                  dispatch = {props.dispatch} />
         </div>
     )
 }

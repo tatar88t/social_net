@@ -3,12 +3,13 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding: 40px 30px;
+    padding: 40px 48px;
   }
 
   .profileAvatar{
     width: 84px;
     height: 84px;
     border-radius: 50%;
-    margin-right: 28px;
+    margin-right: 42px;
+
   }

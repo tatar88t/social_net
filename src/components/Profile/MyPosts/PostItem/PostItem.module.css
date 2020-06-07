@@ -1,15 +1,17 @@
 
 .postItem{
   display: flex;
-  align-items: center;
+  align-items: top;
   justify-content: space-around;
   margin-top: 46px;
+  position: relative;
 }
 
 .postItemImg{
   width: 64px;
   height: 64px;
   border-radius: 50%;
+  margin-top: 4px;
   /* margin-right: 55px; */
 }
 
@@ -21,4 +23,22 @@
   margin-right: 40px;
   color: #2d3436;
   font-size: 16px;
+}
+.postItemIcons{
+  position: absolute;
+  bottom: -26px;
+  right: 8%;
+  display: flex;
+  justify-content: flex-end;
+  opacity: 0.6;
+}
+.postItemLike{
+  /* margin-right: 4px; */
+  display: flex;
+  cursor: pointer;
+  
+}
+.postItemTrash, .postItemStar{
+  margin-left: 10px;
+  cursor: pointer;
 }
