@@ -8,9 +8,9 @@ import ChatMessage from './ChatMessage/ChatMessage';
 
 const Chat =(props) => {
 
-    
+   
 
-    const allmessages = props.messages.map(item => <ChatMessage message = {item.message} id = {item.id} />)
+    const allmessages = props.dialogPage.messages.map(item => <ChatMessage message = {item.message} id = {item.id} />)
 
     const onSendMessage = () => {
         props.sendMessage()
@@ -26,7 +26,7 @@ const Chat =(props) => {
             <div className = {stl.chat}>
                 {allmessages}    
             </div>
-            <textarea onChange = {onMessageChange} value = {props.newMessageText} className = {stl.newMessage} placeholder = 'Enter your message here...'></textarea>
+            <textarea onChange = {onMessageChange} value = {props.dialogPage.newMessageText} className = {stl.newMessage} placeholder = 'Enter your message here...'></textarea>
             <div className = {stl.btnWrapper}>
                 <button onClick = {onSendMessage}>Send</button>    
             </div>

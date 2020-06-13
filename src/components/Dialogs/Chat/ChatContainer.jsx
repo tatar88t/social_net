@@ -3,33 +3,24 @@ import stl from './chat.module.css';
 import { NavLink } from 'react-router-dom';
 import ChatMessage from './ChatMessage/ChatMessage';
 import {sendMessageCreator, onMessageBodyChangeCreator} from '../../redux/dialogPageReducer';
-import Chat from './Chat'
+import Chat from './Chat';
+import {connect} from 'react-redux';
 
-
-const ChatContainer =(props) => {
-
+let mapStateToProps = (state) => {
     
-    let state = props.store.getState()
-
-    
-
-    const onSendMessage = () => {
-        props.store.dispatch(sendMessageCreator())
+    return{
+        dialogPage: state.dialogPage
     }
-    
-    const onMessageChange = (text) => {
-        
-        let action = onMessageBodyChangeCreator(text);
-        props.store.dispatch(action);
+}
+let mapDispatchToProps = (dispatch) => {
+     return{
+        sendMessage: () => {dispatch(sendMessageCreator())},
+        updateMessage: (text) => {
+            dispatch(onMessageBodyChangeCreator(text));
+        }
     }
-
-    return(
-        <Chat 
-            sendMessage = {onSendMessage} 
-            updateMessage = {onMessageChange} 
-            messages = {state.dialogPage.messages} 
-            newMessageText = {state.dialogPage.newMessageText} />
-    )
 }
 
-export default ChatContainer
+const ChatContainer = connect(mapStateToProps, mapDispatchToProps)(Chat);
+
+export default ChatContainer;

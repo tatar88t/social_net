@@ -18,7 +18,8 @@ const Dialogs =(props) => {
                 //   newMessageText = {props.state.newMessageText}
                 //   messages = {props.state.messages} 
                 //   dispatch = {props.dispatch}
-                  store = {props.store} />
+                //   store = {props.store} 
+                  />
         </div>
     )
 }

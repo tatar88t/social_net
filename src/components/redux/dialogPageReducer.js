@@ -21,17 +21,18 @@ let initialState = {
 const dialogPageReducer = (state = initialState, action) => {
     switch (action.type) {
         case SEND_MESSAGE: 
-            let newMessage = {
-                id: 8,
-                message: state.newMessageText   
-            };
-            state.messages.push(newMessage);
-            state.newMessageText = '';
-            return state
+            return {
+            ...state,
+            messages: [...state.messages, {id: 8, message: state.newMessageText}],
+            newMessageText: '',
+            }
+        
         
         case UPDATE_NEW_MESSAGE_BODY: 
-            state.newMessageText = action.newMessageBody;
-            return state
+           return {
+               ...state, newMessageText: action.newMessageBody
+            }; 
+        
 
         default:
             return state

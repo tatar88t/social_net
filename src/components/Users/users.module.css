@@ -1,0 +1,48 @@
+.usersBlock{
+    padding: 40px 200px 50px 60px;
+}
+.userItem{
+    padding: 12px 0;
+    display: flex;
+    flex-grow:  1 1 2;
+    /* justify-content: space-between; */
+    align-items: center;
+    
+}
+
+.userItemAvatar{
+    
+
+    
+    
+    /* background: #2d3436; */
+}
+.userItemAvatar img{
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+    object-fit: cover;
+    /* object-position: 0% 0%; */   
+}
+.userItemDescr{
+    width: 100%;
+    margin-left: 2em;
+}
+.userItemName{
+    font-weight: 700;
+}
+.userItemBtn{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+.pages span {
+    margin: 0 12px;
+    cursor: pointer;
+}
+.activePage{
+    font-weight: 900;
+    
+   
+    
+}
