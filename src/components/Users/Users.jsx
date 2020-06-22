@@ -1,6 +1,7 @@
 import React from 'react';
 import stl from './users.module.css'  
 import userPhoto from './../../Assets/img/userAlt.png';
+import { NavLink } from 'react-router-dom';
 
 let Users = (props) => {
 
@@ -8,7 +9,7 @@ let Users = (props) => {
 
         let pages =[];
 // ------------------------pagesCount--------
-        for (let i=1; i <= 10; i++) {
+        for (let i=1; i <= 5; i++) {
             pages.push(i)
         }
 
@@ -24,9 +25,12 @@ let Users = (props) => {
         
         props.users.map(user => <div key = {user.id} className = {stl.userItem}>
             
-            <div className = {stl.userItemAvatar}>
-                <img src = {user.photos.small != null ? user.photos.small : userPhoto} alt = "profile-pic" />
-            </div>
+            <NavLink to = {'/profile/' + user.id}>
+                <div className = {stl.userItemAvatar}>
+                    <img src = {user.photos.small != null ? user.photos.small : userPhoto} alt = "profile-pic" />
+                </div>
+            </NavLink>
+            
             
             <div className = {stl.userItemDescr}>
                 <div className = {stl.userItemName}>{user.name}</div>

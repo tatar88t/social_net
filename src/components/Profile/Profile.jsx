@@ -13,7 +13,7 @@ const Profile = (props) => {
     return(
         <div className = {stl.profile}>
             <div className = {stl.profileHeadImg}></div>
-            <ProfileInfo store = {props.store} />
+            <ProfileInfo store = {props.store} profile = {props.profile} />
             <MyPosts 
                     // posts = {props.state.posts} 
                     //  newPostText = {props.state.newPostText}

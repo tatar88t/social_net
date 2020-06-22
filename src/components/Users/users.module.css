@@ -1,5 +1,6 @@
 .usersBlock{
     padding: 40px 200px 50px 60px;
+    position: relative;
 }
 .userItem{
     padding: 12px 0;
@@ -26,10 +27,18 @@
 }
 .userItemDescr{
     width: 100%;
+   
+    /* display: flex; */
+    
     margin-left: 2em;
 }
 .userItemName{
     font-weight: 700;
+    
+}
+.userItemStatus{
+    
+    word-break: break-all;
 }
 .userItemBtn{
     width: 100%;
@@ -41,8 +50,5 @@
     cursor: pointer;
 }
 .activePage{
-    font-weight: 900;
-    
-   
-    
+    font-weight: 900;    
 }
