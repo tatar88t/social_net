@@ -3,9 +3,20 @@
     background-color: rgb(170, 175, 170);
     border-radius: 10px;
     padding-left: 38px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
   }
   .header img{
     width: 60px;
-
-    
+    margin-right: 8%;
+  }
+  .loginBlock{
+    float: right;
+    margin-left: 80%;
+    margin-right: 5%;
+  }
+  .loginBlock a {
+    text-decoration: none;
+    color: #2d3436;
   }
