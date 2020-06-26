@@ -7,6 +7,7 @@ import Dialogs from './components/Dialogs/Dialogs';
 import UsersContainer from './components/Users/UsersContainer';
 import { Route, BrowserRouter } from 'react-router-dom';
 import LoginPage from "./components/Login/Login";
+import DialogsContainer from "./components/Dialogs/DialogsContainer";
 
 const App = (props) => {
 
@@ -16,7 +17,7 @@ const App = (props) => {
       	  		<Nav />
       	  		<div className = "app-wrapper-content">
 						  <Route path ='/profile/:userId?' render = {() => <ProfileContainer store = {props.store} />} />
-						  <Route path ='/dialogs' render = {() => <Dialogs store = {props.store} />} />
+						  <Route path ='/dialogs' render = {() => <DialogsContainer />} />
 					<Route path ='/news' component = {""}/>
 					<Route path ='/music' component = {""}/>
 					<Route path ='/settings' component = {""}/>

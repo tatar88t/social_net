@@ -1,23 +1,23 @@
 import React from 'react';
 import stl from './dialogs.module.css';
 import ChatList from './ChatList/ChatList';
-import ChatContainer from './Chat/ChatContainer';
+import Chat from './Chat/Chat';
+import {Redirect} from "react-router-dom";
 
 
 
 
 const Dialogs =(props) => {
-
-
+    if (props.isAuth == false) return <Redirect to={'/login'} />
 
     return(
         <div className = {stl.dialogs}>
-            <ChatList store = {props.store} />
-            <ChatContainer 
-                //   newMessageText = {props.state.newMessageText}
-                //   messages = {props.state.messages} 
-                //   dispatch = {props.dispatch}
-                //   store = {props.store} 
+            <ChatList contacts = {props.contacts} />
+            <Chat
+                  newMessageText = {props.newMessageText}
+                  messages = {props.messages}
+                  sendMessage = {props.sendMessage}
+                  updateMessage ={props.updateMessage}
                   />
         </div>
     )
