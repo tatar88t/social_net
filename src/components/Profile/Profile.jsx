@@ -2,13 +2,14 @@ import React from 'react';
 import stl from './profile.module.css';
 import MyPosts from './MyPosts/MyPosts';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
+import {Redirect} from "react-router-dom";
 
 
     
 
 const Profile = (props) => {
 
-    
+    if (props.isAuth == false) return <Redirect to={'/login'} />
 
     return(
         <div className = {stl.profile}>

@@ -8,8 +8,7 @@ import ChatContainer from './Chat/ChatContainer';
 
 const Dialogs =(props) => {
 
-    
-    
+
 
     return(
         <div className = {stl.dialogs}>
