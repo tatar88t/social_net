@@ -9,7 +9,7 @@ const AddPost = (props) => {
 
   
 
-    const allmessages = props.profilePage.posts.map(item => <PostItem message = {item.post} likes = {item.likes}/>)
+    const allmessages = props.posts.map(item => <PostItem message = {item.post} likes = {item.likes}/>)
 
     const onAddNewPost = () => {
         props.addPost()
@@ -26,7 +26,7 @@ const AddPost = (props) => {
         <div>
             <div className = {stl.addPost}>
                 <button className = {stl.addPostBtn} onClick = {onAddNewPost}>Send</button>
-                <textarea ref = {newPostElement} onChange = {onPostChange} className= {stl.addPostArea} placeholder = "Type here..." value = {props.profilePage.newPostText} />
+                <textarea ref = {newPostElement} onChange = {onPostChange} className= {stl.addPostArea} placeholder = "Type here..." value = {props.newPostText} />
             </div>
                 <div className = {stl.posts}>
                     {allmessages} 

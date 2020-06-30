@@ -1,8 +1,9 @@
-import {usersAPI} from "../../api/api";
+import {profileAPI, usersAPI} from "../../api/api";
 
 const ADD_POST = 'ADD-POST',
       UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT',
-      SET_PROFILE = 'SET_PROFILE';
+      SET_PROFILE = 'SET_PROFILE',
+      SET_STATUS = 'SET_STATUS';
 
 let initialState = {
     posts: [
@@ -13,7 +14,8 @@ let initialState = {
     ],
     profileImg: 'https://cdn.pixabay.com/photo/2016/06/06/17/05/model-1439909_960_720.jpg',
     newPostText: '',
-    profile: null
+    profile: null,
+    status: ''
 }
 
 const profilePageReducer = (state = initialState, action) => {
@@ -38,16 +40,21 @@ const profilePageReducer = (state = initialState, action) => {
         case SET_PROFILE:
             return {
                 ...state, profile: action.profile
-            }  
-             
+            }
+        case SET_STATUS:
+            return {
+                ...state, status: action.status
+            }
+
         default:
             return state
     }
 }
 
-export const addNewPostActionCreator = () => ({type: ADD_POST})
+export const addPost = () => ({type: ADD_POST})
 export const setProfile = (profile) => ({type: SET_PROFILE, profile})
-export const onPostChangeActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text})
+export const updateNewPostText = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text})
+export const setStatus = (status) => ({type: SET_STATUS, status})
 export default profilePageReducer;
 
 export const getUserProfile = (userId) => {
@@ -57,6 +64,24 @@ export const getUserProfile = (userId) => {
                 dispatch(setProfile(response.data));
             })
     }
+}
 
+export const getStatus = (userId) => {
+    return (dispatch) => {
+        profileAPI.getStatus(userId)
+            .then(response => {
+                dispatch(setStatus(response.data));
+            })
+    }
+}
+export const updateStatus = (status) => {
+    return (dispatch) => {
+        profileAPI.updateStatus(status)
+            .then(response => {
+                if (response.data.resultCode === 0) {
+                    dispatch(setStatus(status));
+                }
 
+            })
+    }
 }

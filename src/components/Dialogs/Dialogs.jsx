@@ -8,7 +8,7 @@ import {Redirect} from "react-router-dom";
 
 
 const Dialogs =(props) => {
-    if (props.isAuth == false) return <Redirect to={'/login'} />
+    // if (props.isAuth == false) return <Redirect to={'/login'} />
 
     return(
         <div className = {stl.dialogs}>

@@ -8,15 +8,16 @@ const ProfileInfo = (props) => {
     if (!props.profile) {
         return <Preloader />
     }
-    let state = props.store.getState()
+
     
 
     return(
         <div className = {stl.profileInfo}>
-            
-            {/* <img src = {state.profilePage.profileImg} alt = 'ava-pic' className = {stl.profileAvatar} /> */}
+
             <img src = {props.profile.photos.large ? props.profile.photos.large : defaultAvaImg } alt = 'ava-pic' className = {stl.profileAvatar} />
-            <ProfileDescr profile = {props.profile} />
+            <ProfileDescr profile = {props.profile}
+                          status = {props.status}
+                          updateStatus = {props.updateStatus}/>
             
 
         </div>

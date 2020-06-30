@@ -7,6 +7,8 @@ import * as axios from 'axios';
 import {follow, unfollow, setCurrentPage, getUsers, toggleIsFetching, setUsers, toggleFollowingProgress} from './../redux/usersPageReducer';
 import Preloader from '../common/Preloader/Preloader';
 import { usersAPI } from '../../api/api';
+import {WithAuthRedirect} from "../../HOC/WithAuthRedirect";
+import {compose} from "redux";
 
 
 
@@ -78,13 +80,23 @@ let mapStateToProps = (state) => {
 //     }
 // }
 
-export default connect(mapStateToProps, { 
-    follow,
-    unfollow,
-    setUsers,
-    setCurrentPage,
-    toggleIsFetching,
-    toggleFollowingProgress,
-    getUsers})(UsersContainer);
+// export default connect(mapStateToProps, {
+//     follow,
+//     unfollow,
+//     setUsers,
+//     setCurrentPage,
+//     toggleIsFetching,
+//     toggleFollowingProgress,
+//     getUsers})(UsersContainer);
 
-
+export default compose (
+    WithAuthRedirect,
+    connect(mapStateToProps, {
+        follow,
+        unfollow,
+        setUsers,
+        setCurrentPage,
+        toggleIsFetching,
+        toggleFollowingProgress,
+        getUsers})
+)(UsersContainer)

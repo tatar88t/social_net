@@ -8,18 +8,21 @@ import {Redirect} from "react-router-dom";
     
 
 const Profile = (props) => {
-
-    if (props.isAuth == false) return <Redirect to={'/login'} />
+console.log(props.isAuth, 'ISAUTH')
+    // if (props.isAuth == false) return <Redirect to={'/login'} />
 
     return(
         <div className = {stl.profile}>
             <div className = {stl.profileHeadImg}></div>
-            <ProfileInfo store = {props.store} profile = {props.profile} />
+            <ProfileInfo profile = {props.profile}
+                         status = {props.status}
+                         updateStatus = {props.updateStatus}/>
             <MyPosts 
-                    // posts = {props.state.posts} 
-                    //  newPostText = {props.state.newPostText}
-                    // dispatch = {props.dispatch} 
-                    //  store = {props.store}
+                    posts = {props.posts}
+                    newPostText = {props.newPostText}
+                    addPost = {props.addPost}
+                    updateNewPostText = {props.updateNewPostText}
+
                       />
         </div>
     )
