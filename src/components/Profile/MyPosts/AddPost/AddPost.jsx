@@ -1,33 +1,22 @@
 import React from 'react';
 import stl from './addPost.module.css';
-import {addNewPostActionCreator, onPostChangeActionCreator} from '../../../redux/profilePageReducer';
 import PostItem from './../PostItem/PostItem';
+import {Field, reduxForm} from "redux-form";
+import {maxLengthCreator, required} from "../../../../utils/validators";
+import {Textarea} from "../../../common/FormsControls/FormsControls";
 
 const AddPost = (props) => {
-    
-    let newPostElement = React.createRef()
-
-  
 
     const allmessages = props.posts.map(item => <PostItem message = {item.post} likes = {item.likes}/>)
 
-    const onAddNewPost = () => {
-        props.addPost()
-      
-        
-    }
-    
+    const onAddNewPost = (values) => {
+        props.addPost(values.newPostText)
 
-    let onPostChange = () => {
-        let text = newPostElement.current.value;
-        props.updateNewPostText(text)
     }
+
     return(
         <div>
-            <div className = {stl.addPost}>
-                <button className = {stl.addPostBtn} onClick = {onAddNewPost}>Send</button>
-                <textarea ref = {newPostElement} onChange = {onPostChange} className= {stl.addPostArea} placeholder = "Type here..." value = {props.newPostText} />
-            </div>
+                <AddPostFormRedux onSubmit = {onAddNewPost} />
                 <div className = {stl.posts}>
                     {allmessages} 
                 </div>   
@@ -35,4 +24,21 @@ const AddPost = (props) => {
                 
     )
 }
+const maxLength30 = maxLengthCreator(30)
+const AddPostForm = (props) => {
+    return (
+        <form className = {stl.addPost} onSubmit={props.handleSubmit}>
+            <button className = {stl.addPostBtn} >Send</button>
+            <Field component = {Textarea}
+                   name = 'newPostText'
+                   // className= {stl.addPostArea}
+                   placeholder = "Type here..."
+                   validate={[required, maxLength30]}
+            />
+        </form>
+        )
+}
+const AddPostFormRedux = reduxForm({
+    form: "AddPostForm"
+})(AddPostForm)
 export default AddPost;

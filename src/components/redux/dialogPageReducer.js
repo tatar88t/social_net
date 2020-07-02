@@ -1,5 +1,4 @@
-const SEND_MESSAGE = 'SEND-MESSAGE',
-      UPDATE_NEW_MESSAGE_BODY = 'UPDATE-NEW-MESSAGE-BODY';
+const SEND_MESSAGE = 'SEND-MESSAGE'
 
 let initialState = {
     contacts: [
@@ -14,31 +13,20 @@ let initialState = {
         {message: 'I\'m OK as well', id: "03"},
         {message: 'Do you want to go for a walk tonight', id: "04"},
         {message: 'Sure, meet me in the park at 6', id: "05"}
-    ],
-    newMessageText: '',
+    ]
 }
 
 const dialogPageReducer = (state = initialState, action) => {
     switch (action.type) {
-        case SEND_MESSAGE: 
+        case SEND_MESSAGE:
+            let body = action.newMessageText
             return {
             ...state,
-            messages: [...state.messages, {id: 8, message: state.newMessageText}],
-            newMessageText: '',
+            messages: [...state.messages, {id: 8, message: body}]
             }
-        
-        
-        case UPDATE_NEW_MESSAGE_BODY: 
-           return {
-               ...state, newMessageText: action.newMessageBody
-            }; 
-        
-
         default:
             return state
     }    
 }
-export const sendMessageCreator = () => ({type: SEND_MESSAGE})
-
-export const onMessageBodyChangeCreator = (text) => ({type: UPDATE_NEW_MESSAGE_BODY, newMessageBody: text})
+export const sendMessageCreator = (newMessageText) => ({type: SEND_MESSAGE, newMessageText})
 export default dialogPageReducer;

@@ -1,6 +1,6 @@
 .addPost{
   display: flex;
-  align-items: baseline;
+  align-items: flex-start;
   justify-content: space-around;
 }
 
@@ -19,6 +19,7 @@
   
 }
 .addPostBtn{
+  margin-top: 12px;
   width: 94px;
   height: 32px;
   background: #2d3436;

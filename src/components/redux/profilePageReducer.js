@@ -1,7 +1,6 @@
 import {profileAPI, usersAPI} from "../../api/api";
 
 const ADD_POST = 'ADD-POST',
-      UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT',
       SET_PROFILE = 'SET_PROFILE',
       SET_STATUS = 'SET_STATUS';
 
@@ -13,7 +12,6 @@ let initialState = {
         {post: 'People burn cars out there. My father took us out there when I was 11 and we burned GranGran’s car, him shaking the lighter fluid over the hood and up against the sides like he was seasoning it, then he let me and Lily toss the lighter through the passenger window but we had to promise to run as soon as it left our hands. Less you want me to roll you in hot sauce and eat you like a crispy wing, you’ll run your little asses fast as you can. We kept our promise and felt the fire at our backs but didn’t get to see it start, when we turned around it was going like it’d been alive forever.', id: 4, likes: 77}
     ],
     profileImg: 'https://cdn.pixabay.com/photo/2016/06/06/17/05/model-1439909_960_720.jpg',
-    newPostText: '',
     profile: null,
     status: ''
 }
@@ -25,17 +23,9 @@ const profilePageReducer = (state = initialState, action) => {
             return {
                 ...state,
                 posts: [...state.posts, {id: 5,
-                                         post: state.newPostText,
+                                         post: action.newPostText,
                                          likes: 0}
-                        ],
-                newPostText: ''    
-            }
-
-            
-        
-        case UPDATE_NEW_POST_TEXT: 
-            return {
-                ...state, newPostText: action.newText
+                        ]
             }
         case SET_PROFILE:
             return {
@@ -51,9 +41,8 @@ const profilePageReducer = (state = initialState, action) => {
     }
 }
 
-export const addPost = () => ({type: ADD_POST})
+export const addPost = (newPostText) => ({type: ADD_POST, newPostText})
 export const setProfile = (profile) => ({type: SET_PROFILE, profile})
-export const updateNewPostText = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text})
 export const setStatus = (status) => ({type: SET_STATUS, status})
 export default profilePageReducer;
 

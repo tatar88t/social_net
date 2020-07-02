@@ -1,0 +1,30 @@
+.textareaWrapper {
+    width:  76%;
+    border-radius: 10px;
+    display: block;
+    margin-right: 50px;
+    font-size: 16px;
+    height: 104px;
+}
+
+.textarea {
+    width: 100%;
+    height: 100%;
+    padding: 12px 28px;
+    border-radius: 10px;
+    resize: none;
+    outline: none;
+    border: 1px solid #636e72;
+}
+.textareaWrapper.error input, .textareaWrapper.error textarea, .inputWrapper.error input{
+    border: 2px red solid;
+}
+.textareaWrapper.error span, .inputWrapper.error span {
+    color: #ff0000;
+}
+.inputWrapper{
+    font-size: 16px;
+}
+.input{
+
+}
