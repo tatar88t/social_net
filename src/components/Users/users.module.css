@@ -45,10 +45,4 @@
     display: flex;
     justify-content: flex-end;
 }
-.pages span {
-    margin: 0 12px;
-    cursor: pointer;
-}
-.activePage{
-    font-weight: 900;    
-}
+

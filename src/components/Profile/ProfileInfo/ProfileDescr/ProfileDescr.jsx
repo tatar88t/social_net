@@ -1,6 +1,6 @@
 import React from 'react';
 import stl from './profileDescr.module.css';
-import ProfileStatus from "./ProfileStatus";
+import ProfileStatusHooks from "./ProfileStatusHooks";
 
 
 const ProfileDescr = (props) => {
@@ -8,7 +8,7 @@ const ProfileDescr = (props) => {
         <div className = {stl.profileDescr}>
             <div>
                 <h2>{props.profile.fullName}</h2>
-                <ProfileStatus  className = {stl.profileStatus} status = {props.status} updateStatus = {props.updateStatus} />
+                <ProfileStatusHooks  className = {stl.profileStatus} status = {props.status} updateStatus = {props.updateStatus} />
                 <div>
                     About me: <span>{props.profile.aboutMe}</span>
                 </div>

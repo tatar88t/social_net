@@ -1,6 +1,6 @@
 import React from 'react'
 import Profile from './Profile';
-import {addPost, getStatus, getUserProfile, updateStatus} from '../redux/profilePageReducer';
+import {addPost, deletePost, getStatus, getUserProfile, updateStatus} from '../redux/profilePageReducer';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import {WithAuthRedirect} from "../../HOC/WithAuthRedirect";
@@ -10,7 +10,12 @@ class ProfileContainer extends React.Component {
     
     componentDidMount() {
         let userId = this.props.match.params.userId;
-        if (!userId) {userId = this.props.loggedId};
+        if (!userId) {
+            userId = this.props.loggedId;
+            if (!userId) {
+                this.props.history.push('/login')
+            }
+        };
         // if (!userId) {userId = 2};
         this.props.getUserProfile(userId);
         this.props.getStatus(userId);
@@ -38,7 +43,8 @@ let mapStateToProps = (state) => ({
 
 
 export default compose (
-    connect(mapStateToProps,{getUserProfile, addPost, getStatus, updateStatus}),
+    WithAuthRedirect,
+    connect(mapStateToProps,{getUserProfile, addPost, getStatus, updateStatus, deletePost}),
     withRouter,
-    WithAuthRedirect
+
 )(ProfileContainer)

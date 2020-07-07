@@ -1,0 +1,10 @@
+.pages span {
+    margin: 0 12px;
+    cursor: pointer;
+}
+.page{
+
+}
+.activePage{
+    font-weight: 900;
+}

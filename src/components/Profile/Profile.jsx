@@ -22,6 +22,7 @@ console.log(props.isAuth, 'ISAUTH')
                     newPostText = {props.newPostText}
                     addPost = {props.addPost}
                     updateNewPostText = {props.updateNewPostText}
+                    deletePost = {props.deletePost}
 
                       />
         </div>

@@ -28,3 +28,7 @@
 .input{
 
 }
+.sumError{
+    color:Red;
+    border: 1px solid red;
+}
