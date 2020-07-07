@@ -16,7 +16,10 @@ console.log(props.isAuth, 'ISAUTH')
             <div className = {stl.profileHeadImg}></div>
             <ProfileInfo profile = {props.profile}
                          status = {props.status}
-                         updateStatus = {props.updateStatus}/>
+                         updateStatus = {props.updateStatus}
+                         isOwner ={props.isOwner}
+                         savePhoto = {props.savePhoto}
+                         />
             <MyPosts 
                     posts = {props.posts}
                     newPostText = {props.newPostText}

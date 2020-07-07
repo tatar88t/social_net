@@ -1,14 +1,21 @@
 import React from 'react'
 import Profile from './Profile';
-import {addPost, deletePost, getStatus, getUserProfile, updateStatus} from '../redux/profilePageReducer';
+import {
+    addPost,
+    deletePost,
+    getStatus,
+    getUserProfile,
+    savePhoto,
+    updateStatus,
+    uploadPhoto
+} from '../redux/profilePageReducer';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import {WithAuthRedirect} from "../../HOC/WithAuthRedirect";
 import {compose} from "redux";
 class ProfileContainer extends React.Component {
 
-    
-    componentDidMount() {
+    refreshProfile () {
         let userId = this.props.match.params.userId;
         if (!userId) {
             userId = this.props.loggedId;
@@ -20,14 +27,27 @@ class ProfileContainer extends React.Component {
         this.props.getUserProfile(userId);
         this.props.getStatus(userId);
     }
+    componentDidMount() {
+        this.refreshProfile ()
+    }
+    componentDidUpdate(prevProps) {
+        if (this.props.match.params.userId != prevProps.match.params.userId){
+            this.refreshProfile ()
+        }
+
+    }
+
     render() {
         return (
             <Profile {...this.props} profile = {this.props.profile}
+                 isOwner = {!this.props.match.params.userId}
                  profilePage ={this.props.profilePage}
                  posts ={this.props.profilePage.posts}
                  addPost = {this.props.addPost}
                  status = {this.props.status}
-                 updateStatus = {this.props.updateStatus} />
+                 updateStatus = {this.props.updateStatus}
+                 savePhoto = {this.props.savePhoto}
+                     />
         )
     }
 }
@@ -44,7 +64,7 @@ let mapStateToProps = (state) => ({
 
 export default compose (
     WithAuthRedirect,
-    connect(mapStateToProps,{getUserProfile, addPost, getStatus, updateStatus, deletePost}),
+    connect(mapStateToProps,{getUserProfile, addPost, getStatus, updateStatus, deletePost, savePhoto}),
     withRouter,
 
 )(ProfileContainer)
