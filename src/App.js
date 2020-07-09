@@ -4,7 +4,7 @@ import HeaderContainer from './components/Header/HeaderContainer'
 import Nav from './components/Nav/Nav'
 
 import UsersContainer from './components/Users/UsersContainer';
-import {Route, BrowserRouter, withRouter} from 'react-router-dom';
+import {Route, BrowserRouter, withRouter, Redirect} from 'react-router-dom';
 import LoginPage from "./components/Login/Login";
 // import DialogsContainer from "./components/Dialogs/DialogsContainer";
 // import ProfileContainer from './components/Profile/ProfileContainer'
@@ -30,6 +30,7 @@ class App extends Component{
 				<HeaderContainer />
 				<Nav />
 				<div className = "app-wrapper-content">
+					<Route exact path ='/' render = {() => <Redirect to={'/profile'} />} />
 					<Suspense fallback={'Loading'} >
 						<Route path ='/profile/:userId?' render = {() => <ProfileContainer />} />
 						<Route path ='/dialogs' render = {() => <DialogsContainer />} />
