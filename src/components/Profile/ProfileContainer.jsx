@@ -5,7 +5,7 @@ import {
     deletePost,
     getStatus,
     getUserProfile,
-    savePhoto,
+    savePhoto, saveProfileInfo,
     updateStatus,
     uploadPhoto
 } from '../redux/profilePageReducer';
@@ -47,6 +47,7 @@ class ProfileContainer extends React.Component {
                  status = {this.props.status}
                  updateStatus = {this.props.updateStatus}
                  savePhoto = {this.props.savePhoto}
+                     saveProfileInfo = {this.props.saveProfileInfo}
                      />
         )
     }
@@ -64,7 +65,7 @@ let mapStateToProps = (state) => ({
 
 export default compose (
     WithAuthRedirect,
-    connect(mapStateToProps,{getUserProfile, addPost, getStatus, updateStatus, deletePost, savePhoto}),
+    connect(mapStateToProps,{getUserProfile, addPost, getStatus, updateStatus, deletePost, savePhoto, saveProfileInfo}),
     withRouter,
 
 )(ProfileContainer)

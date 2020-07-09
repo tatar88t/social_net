@@ -26,7 +26,9 @@ const ProfileInfo = (props) => {
             {props.isOwner && <input type={'file'} onChange = {onProfilePhotoSelected}/>}
             <ProfileDescr profile = {props.profile}
                           status = {props.status}
-                          updateStatus = {props.updateStatus}/>
+                          updateStatus = {props.updateStatus}
+                            isOwner = {props.isOwner}
+                          saveProfileInfo = {props.saveProfileInfo}/>
             
 
         </div>
