@@ -1,6 +1,7 @@
 import React from 'react'
 import Profile from './Profile';
 import {
+    addLike, addMark,
     addPost,
     deletePost,
     getStatus,
@@ -48,6 +49,9 @@ class ProfileContainer extends React.Component {
                  updateStatus = {this.props.updateStatus}
                  savePhoto = {this.props.savePhoto}
                      saveProfileInfo = {this.props.saveProfileInfo}
+                     deletePost = {this.props.deletePost}
+                     addLike ={this.props.addLike}
+                     addMark ={this.props.addMark}
                      />
         )
     }
@@ -65,7 +69,7 @@ let mapStateToProps = (state) => ({
 
 export default compose (
     WithAuthRedirect,
-    connect(mapStateToProps,{getUserProfile, addPost, getStatus, updateStatus, deletePost, savePhoto, saveProfileInfo}),
+    connect(mapStateToProps,{getUserProfile, addPost, getStatus, updateStatus, deletePost, savePhoto, saveProfileInfo, addLike, addMark}),
     withRouter,
 
 )(ProfileContainer)

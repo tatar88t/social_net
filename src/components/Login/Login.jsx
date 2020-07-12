@@ -12,21 +12,25 @@ const maxLength = maxLengthCreator(40)
 const LoginForm = ({handleSubmit, error, captchaUrl}) => {
     return (
             <form onSubmit={handleSubmit} >
-                <div> For test use following data: <br/>
-                    Email: tatar_88@bk.ru <br/>
+                <div className={stl.loginFormAuthDescr}> For test use following data: <br/>
+                    Email: email from resume <br/>
                     Password: 32167bubba
                 </div>
                 {createField('Email', 'email', Input, [required, maxLength])}
                 {createField('Password', 'password', Input, [required, maxLength],
                     {type: 'password'})}
-                {createField(null, 'rememberMe', Input, [], {type: 'checkbox'}, 'remember me')}
+                <div className={stl.rememberBlock}>
+                    {createField(null, 'rememberMe', Input, [], {type: 'checkbox'})}
+                    <span>remember me</span>
+                </div>
+
                 {captchaUrl && <img src={captchaUrl} alt = 'captcha' />}
                 {captchaUrl && createField('Enter symbols from picture', 'captcha', Input, [required])}
                 {error && <div className={stl.sumError}>
                     {error}
                 </div>}
                 <div>
-                    <button>Login</button>
+                    <button className={stl.btn}>Login</button>
                 </div>
 
             </form>
@@ -46,7 +50,7 @@ const Login = ({login, isAuth, captchaUrl}) => {
         return <Redirect to={'/profile'} />
     }
     return(
-        <div>
+        <div className={stl.loginForm}>
             <h1>Login</h1>
             <LoginReduxForm onSubmit = {onSubmit} captchaUrl = {captchaUrl} />
         </div>

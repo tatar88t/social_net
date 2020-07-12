@@ -10,7 +10,6 @@ import {Redirect} from "react-router-dom";
 const Profile = (props) => {
 console.log(props.isAuth, 'ISAUTH')
     // if (props.isAuth == false) return <Redirect to={'/login'} />
-
     return(
         <div className = {stl.profile}>
             <div className = {stl.profileHeadImg}></div>
@@ -27,7 +26,9 @@ console.log(props.isAuth, 'ISAUTH')
                     addPost = {props.addPost}
                     updateNewPostText = {props.updateNewPostText}
                     deletePost = {props.deletePost}
-
+                    profile = {props.profile}
+                    addLike ={props.addLike}
+                    addMark ={props.addMark}
                       />
         </div>
     )

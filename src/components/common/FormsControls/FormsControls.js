@@ -18,7 +18,7 @@ export const Input = ({input, meta: {touched, error}, ...props}) => {
     const hasError = touched && error
     return(
         <div className = {hasError? stl.inputWrapper + ' ' + stl.error : stl.inputWrapper} >
-            <input  className = {stl }  {...input} {...props} />
+            <input  className = {stl.input }  {...input} {...props} />
             {hasError && <span>{error}</span>}
         </div>
 

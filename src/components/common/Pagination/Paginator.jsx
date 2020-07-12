@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
-import stl from './Pagination.module.css'
+import stl from './Pagination.module.css';
+import cn from 'classnames'
 
 const Paginator = ({totalUsersCount, pageSize, onPageChanged, currentPage }) => {
     const PORTION_SIZE = 10;
@@ -21,7 +22,7 @@ const Paginator = ({totalUsersCount, pageSize, onPageChanged, currentPage }) => 
                 .map(p => {
                 return <span key = {p}
                              onClick = {(e) => {onPageChanged(p)}}
-                             className = {currentPage === p ? stl.activePage: stl.page}>{p}</span>})
+                             className = {cn({[stl.activePage]: currentPage === p},  stl.page)}>{p}</span>})
             }
             {portionNum < portionCount && <button onClick = {() => setPortionNum(portionNum + 1)}>Next</button>}
         </div>

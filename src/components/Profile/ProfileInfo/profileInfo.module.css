@@ -10,6 +10,53 @@
     width: 84px;
     height: 84px;
     border-radius: 50%;
-    margin-right: 42px;
+    margin-right: 82px;
+    cursor: pointer;
+  }
+  .closePhoto{
+    cursor: pointer;
+  }
+  .photoInModal{
+    position: absolute;
+    top: 50%;
+    left:50%;
+    z-index: 10;
+
+    transform: translate(-50%, -50%);
+    margin: 0 auto;
+    text-align: center;
+    border: none;
+    outline: none;
+  }
+  .photoInModal img{
+    border-radius: 5%;
+  }
+  .photoInModal div {
+
+  }
+  .overlay{
+    backdrop-filter: blur(6px);
+    background-color: rgba(3,5,5,0.6);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+  }
+  .changePhoto{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 0.7rem;
+  }
+  .changePhoto input{
+    display: none;
+  }
+  .changePhotoLabel {
+    cursor: pointer;
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 300;
+    font-style: italic;
 
   }

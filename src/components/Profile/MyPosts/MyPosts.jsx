@@ -5,8 +5,8 @@ import stl from './myPosts.module.css'
 import AddPost from "./AddPost/AddPost";
 
 const MyPosts = React.memo((props) => {
-    
-    console.log('RENDER')
+
+
 
 
     return(
@@ -15,6 +15,9 @@ const MyPosts = React.memo((props) => {
             <AddPost posts = {props.posts}
                      addPost = {props.addPost}
                      deletePost = {props.deletePost}
+                     profile = {props.profile}
+                     addLike ={props.addLike}
+                     addMark ={props.addMark}
                      />
         </div>
     )

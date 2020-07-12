@@ -1,3 +1,12 @@
+.loginForm{
+    margin-left: 5rem;
+    margin-top: 3rem;
+}
+.loginFormAuthDescr{
+    font-weight: 300;
+    font-size: 12px;
+    font-style: italic;
+}
 .textareaWrapper {
     width:  76%;
     border-radius: 10px;
@@ -26,9 +35,30 @@
     font-size: 16px;
 }
 .input{
-
+    border: 1px solid #2d3436;
+    border-radius: 5px;
+    padding: 8px 8px 2px 8px;
+    margin-top: 1rem;
 }
 .sumError{
     color:Red;
     border: 1px solid red;
+}
+.btn{
+    margin-top: 12px;
+    width: 94px;
+    height: 32px;
+    background: #2d3436;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    outline: none;
+    cursor: pointer;
+}
+.rememberBlock{
+    display: flex;
+    align-items: baseline;
+}
+.rememberBlock span {
+    margin-left: 1rem;
 }

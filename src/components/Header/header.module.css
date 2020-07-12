@@ -16,7 +16,21 @@
     margin-left: 80%;
     margin-right: 5%;
   }
-  .loginBlock a {
-    text-decoration: none;
-    color: #2d3436;
-  }
+  /*.loginBlock a {*/
+  /*  text-decoration: none;*/
+  /*  color: #2d3436;*/
+  /*}*/
+.loginBlock div {
+    font-style: italic;
+}
+.logoutBtn {
+    border: none;
+    background-color: inherit;
+    color: #fff;
+    font-weight: 200;
+    font-style: italic;
+    float: right;
+    padding:0;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
