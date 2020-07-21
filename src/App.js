@@ -12,6 +12,7 @@ import {connect} from "react-redux";
 import {compose} from "redux";
 import {initializeApp} from "./components/redux/appReducer";
 import Preloader from "./components/common/Preloader/Preloader";
+import Video from "./components/Video/Video";
 
 const DialogsContainer = React.lazy(() => import("./components/Dialogs/DialogsContainer"))
 const ProfileContainer = React.lazy(() => import('./components/Profile/ProfileContainer'))
@@ -43,7 +44,7 @@ class App extends Component{
 						<Route path ='/profile/:userId?' render = {() => <ProfileContainer />} />
 						<Route path ='/dialogs' render = {() => <DialogsContainer />} />
 					</Suspense>
-					<Route path ='/news' component = {""}/>
+					<Route path ='/video' render = {() => <Video />}/>
 					<Route path ='/music' component = {""}/>
 					<Route path ='/settings' component = {""}/>
 					<Route path ='/users' render = {() => <UsersContainer />} />

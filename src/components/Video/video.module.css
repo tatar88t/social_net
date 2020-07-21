@@ -1,0 +1,12 @@
+.fixedVideosWrapper{
+   padding: 20px 20px 10px 20px;
+    display: flex;
+    justify-content: space-around;
+}
+.videoItem{
+
+    margin: auto;
+    margin-top: 14px;
+    margin-bottom: 30px;
+    text-align: center;
+}

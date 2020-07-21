@@ -7,6 +7,12 @@ const instance = axios.create({
         "API-KEY": "2d90cddc-1060-4be7-ba66-f0e7702382eb"
     }
 });
+const YT_API_KEY = 'AIzaSyBQEJu8O4wI92VPf9JBUqK9xY_Nn1J9xtc';
+const YTinstance = axios.create({
+    timeout: 3000,
+    baseURL: `https://www.googleapis.com/youtube/v3/search?key=AIzaSyBQEJu8O4wI92VPf9JBUqK9xY_Nn1J9xtc&q=`
+
+})
 
 export const usersAPI = {
     getUsers(currentPage = 1, pageSize = 10) {
@@ -64,5 +70,10 @@ export const authAPI = {
 export const securityAPI = {
     getCaptcha() {
         return instance.get(`security/get-captcha-url`)
+    }
+}
+export const youTubeAPI = {
+    searchByQuery(inpValue) {
+        return YTinstance.get(`${inpValue}&maxResults=10`)
     }
 }
